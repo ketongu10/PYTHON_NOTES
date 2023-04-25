@@ -13,7 +13,7 @@ def as_main():
     df['male'] = df['Sex'] == 'male'
     X = df[['Pclass', 'male', 'Age', 'Siblings/Spouses', 'Parents/Children', 'Fare']].values
     y = df['Survived'].values
-    X_train, X_test, y_train, y_test = train_test_split(X, y)  # random_state used as seed
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=22)  # random_state used as seed
 
     model = LogisticRegression()
     model.fit(X_train, y_train)
