@@ -9,7 +9,7 @@ from sklearn.metrics import roc_auc_score, roc_curve
 def as_main():
 
     """DATA PREPARING"""
-    df = pd.read_csv('./PANDAS/titanic.csv')
+    df = pd.read_csv('../PANDAS/titanic.csv')
     df['male'] = df['Sex'] == 'male'
     X = df[['Pclass', 'male', 'Age', 'Siblings/Spouses', 'Parents/Children', 'Fare']].values
     y = df['Survived'].values
@@ -19,6 +19,7 @@ def as_main():
     model.fit(X_train, y_train)
     y_pred_proba = model.predict_proba(X_test)
     fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba[:, 1])
+    print(y_pred_proba)
 
     """THE CLOSER ROC_CURVE TO LEFT UPPER CORNER THE BETTER MODEL IS"""
     print("AUC score:", roc_auc_score(y_test, y_pred_proba[:, 1]))
@@ -30,3 +31,5 @@ def as_main():
     plt.xlabel('1 - specificity')
     plt.ylabel('sensitivity')
     plt.show()
+
+as_main()
