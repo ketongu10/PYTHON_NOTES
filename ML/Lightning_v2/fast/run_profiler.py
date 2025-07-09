@@ -44,10 +44,7 @@ def run(cfg):
     batch_sise = 12
     ram_buf_sise = 1000
 
-    mlflow_url = "https://mlflow.nvi-solutions.ru"
-    os.environ["MLFLOW_S3_ENDPOINT_URL"] = "https://minioapi.nvi-solutions.ru"
-    os.environ["AWS_ACCESS_KEY_ID"] = "owlguard-rw"
-    os.environ["AWS_SECRET_ACCESS_KEY"] = "owlguard-rw"
+    mlflow_url = "localhost"
     mlflow.set_tracking_uri(mlflow_url)
 
     mlflow.set_experiment(cfg.logging.experiment)
