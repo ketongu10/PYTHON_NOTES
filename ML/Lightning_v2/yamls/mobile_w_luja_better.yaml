@@ -1,0 +1,67 @@
+hydra:
+  run:
+    dir: outputs/${hydra.job.name}/${logging.run_name}_${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    chdir: true
+defaults:
+  - _self_
+
+dataset:
+  train: [
+#      /vol2/WATER/BLENDER_DATASETS/NN_LABELED_DATA/REAL_2700_WATER_not_filtered,
+#      /vol2/WATER/BLENDER_DATASETS/NN_LABELED_DATA/REAL_RANDOM_SHIT_noWATER,
+
+      /vol1/WATER/DATASET/FOR_UNET/data/106 WATERluja 16.06.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/PC WATERluja 16.06.25,
+
+      /vol1/WATER/DATASET/FOR_UNET/data/105 WATERdown 8.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/105 lqgWATERdown 15.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/105 noWATERdown 16.05.25,
+#
+      /vol1/WATER/DATASET/FOR_UNET/data/UMAR noWATERdown 12.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/PC noWATERup 8.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/PC noWATERup 15.05.25,
+#
+      /vol1/WATER/DATASET/FOR_UNET/data/104 WATERup 8.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/104 lqgWATERup 12.05.25,
+#
+      /vol1/WATER/DATASET/FOR_UNET/data/106 WATERup 8.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/106 WATERup 15.05.25,
+      /vol1/WATER/DATASET/FOR_UNET/data/106 noWATERup 16.05.25,
+  ]
+  val: [
+#    /vol2/WATER/BLENDER_DATASETS/NN_LABELED_DATA/REAL_2700_WATER_not_filtered,
+#    /vol2/WATER/BLENDER_DATASETS/NN_LABELED_DATA/REAL_RANDOM_SHIT_noWATER,
+
+
+    /vol1/WATER/DATASET/FOR_UNET/data/106 WATERluja 16.06.25,
+    /vol1/WATER/DATASET/FOR_UNET/data/PC WATERluja 16.06.25,
+
+#    /vol1/WATER/DATASET/FOR_UNET/data/105 WATERdown 8.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/105 lqgWATERdown 15.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/105 noWATERdown 16.05.25,
+#
+#    /vol1/WATER/DATASET/FOR_UNET/data/UMAR noWATERdown 12.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/PC noWATERup 8.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/PC noWATERup 15.05.25,
+#
+#    /vol1/WATER/DATASET/FOR_UNET/data/104 WATERup 8.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/104 lqgWATERup 12.05.25,
+#
+#    /vol1/WATER/DATASET/FOR_UNET/data/106 WATERup 8.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/106 WATERup 15.05.25,
+#    /vol1/WATER/DATASET/FOR_UNET/data/106 noWATERup 16.05.25,
+  ]
+  test: /vol2/WATER/REAL_DATA_DATASET/NEW_TEST/test_23.05
+
+logging:
+  test_run: false # if true, do not save_batch and log it to remote
+  remote: true
+  experiment: water_flow_4
+  run_name: mbfrmr_w_luja_better
+  train_batch_dir: train_batch
+  val_batch_dir: val_batch
+  test_batch_dir: test_batch
+  test_d_batch_dir: test_b_batch
+
+epochs: 50
